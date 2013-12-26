@@ -182,3 +182,20 @@ class Databases_function:
         self.logging_msg(self.run_syslog,log_msg)
        read_line = fopen.readline().strip()
       fopen.close()
+
+ ### get the table enties list from datase
+ def get_table_enties_from_database(self,database_name):
+  table_enties_dict={}
+  for table_names in self.send_msg([database_name,"show tables;"]):
+   enties_lists=[]
+   for enties in self.send_msg([database_name,"desc "+table_names[0]+";"]):
+    if enties[0] not in enties_lists:
+     enties_lists.append(enties[0])
+    else:
+     msg="[ error : "+time.asctime()+" ] there is duplicated entry, during desc "+table_names[0]+"; in "+database_name
+     self.logging_msg(self.run_syslog,msg)
+     sys.exit()
+   ### arrange the result
+   table_enties_dict[table_names[0]]=enties_lists
+  ### return the result
+  return table_enties_dict
