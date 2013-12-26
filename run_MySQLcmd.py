@@ -3,6 +3,7 @@
 import sys
 import os
 from utils.common_function import Common_function
+from utils.system_info import *
 
 
 class Run_commander(Common_function):
@@ -11,15 +12,19 @@ class Run_commander(Common_function):
 
   ### current Working directory
   self.directory=os.getcwd()
+
   ### default log file information
-  self.log_d=self.directory+"/log"
-  self.run_syslog=self.log_d+"/runsys.log"
+  self.log_d = log_directory
+  self.run_syslog = "/".join(log_directory.split("/")[:len(log_directory.split("/"))-1])+"/runsys.log"
+
   ### default database table information 
   self.synctb_d=self.directory+"/database_sync"
+
   ### shell name define
   self.shell_name=values[0]
+
   # Confrim the folder status 
-  self.create_directory_if_exists_not([self.directory,"log"])
+  self.create_directory_if_exists_not(["/".join(log_directory.split("/")[:len(log_directory.split("/"))-1]),"log"])
   self.create_directory_if_exists_not([self.directory,"database_sync"])
 
 
