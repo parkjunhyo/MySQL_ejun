@@ -55,9 +55,6 @@ then
 
  ### mysql restart
  /etc/init.d/mysql restart
-
- ### root account privlege from remote site
- $working_directory/run_mysqlcmd.py priv_user root $mysql_pass
 fi
 
 ## create the python system_info files
