@@ -16,7 +16,7 @@ class Common_function(Help_manual):
    if values[1] in self.function.keys():
     command = values[1]
     if command == "-h" or command == "--help":
-     self.function[command](values)
+     self.function[command](self,values)
      sys.exit()
     ### correct input
     return values[1], values[2:]
