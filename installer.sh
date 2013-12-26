@@ -58,14 +58,15 @@ then
 fi
 
 ## create the python system_info files
-if [ ! -f $access_info ]
+if [ -f $access_info ]
 then
- touch $access_info
- echo "database_passwd='$mysql_pass'" >> $access_info
- echo "client_mode='$mode'" >> $access_info
- echo "database_host='$mysql_bind'" >> $access_info
- echo "log_directory='$log_directory'" >> $access_info
+ rm -rf $access_info
 fi
+touch $access_info
+echo "database_passwd='$mysql_pass'" >> $access_info
+echo "client_mode='$mode'" >> $access_info
+echo "database_host='$mysql_bind'" >> $access_info
+echo "log_directory='$log_directory'" >> $access_info
 
 ## give auth to make possible remote acceess
 if [[ $mode = 'server' ]]
