@@ -79,9 +79,7 @@ class Databases_function:
   if options == 'echo':
    self.display_monitor(exec_result)
   ### return the result
-  self.result = exec_result
-  #return exec_result 
-  return self.result
+  return exec_result
 
  ### sync the database tables
  def sync_db(self,values):
