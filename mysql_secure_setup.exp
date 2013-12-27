@@ -1,0 +1,26 @@
+#! /usr/bin/expect
+
+# password setting
+set msg1 "Enter current password for root"
+set msg2 "Change the root password?"
+set msg3 "Remove anonymous users?"
+set msg4 "Disallow root login remotely?"
+set msg5 "Remove test database and access to it?"
+set msg6 "Reload privilege tables now?"
+set password "changepass"
+
+## auto password setup
+spawn bash -c "mysql_secure_installation"
+expect -timeout 300 -re $msg1
+send "$password\r"
+expect -timeout 300 -re $msg2
+send "n\r"
+expect -timeout 300 -re $msg3
+send "y\r"
+expect -timeout 300 -re $msg4
+send "n\r"
+expect -timeout 300 -re $msg5
+send "y\r"
+expect -timeout 300 -re $msg6
+send "y\r"
+interact

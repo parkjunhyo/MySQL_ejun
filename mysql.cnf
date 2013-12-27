@@ -1,0 +1,3 @@
+## password for root account
+#mysql_pass='mysql'
+#mysql_bind_iface='eth0'

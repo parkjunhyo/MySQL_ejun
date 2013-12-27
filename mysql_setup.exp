@@ -1,0 +1,14 @@
+#! /usr/bin/expect
+
+# password setting
+set msg1 "New password for the MySQL \"root\" user:"
+set msg2 "Repeat password for the MySQL \"root\" user:"
+set password "changepass"
+
+## auto password setup
+spawn bash -c "apt-get install -y mysql-server"
+expect -timeout 300 -re $msg1
+send "$password\r"
+expect -timeout 300 -re $msg2
+send "$password\r"
+interact
