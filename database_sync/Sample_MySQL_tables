@@ -1,0 +1,7 @@
+table_name1 entry_name1 VARCHAR(40) UNIQUE,
+table_name1 entry_name2 VARCHAR(40) UNIQUE
+table_name1 entry_name3 VARCHAR(40)
+table_name1 entry_name4 VARCHAR(40)
+table_name2 entry_name1 VARCHAR(40)
+table_name2 entry_name2 VARCHAR(40)
+table_name3 entry_name1 VARCHAR(40)
