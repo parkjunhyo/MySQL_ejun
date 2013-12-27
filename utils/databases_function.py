@@ -182,7 +182,7 @@ class Databases_function:
       fopen.close()
 
  ### get the table enties list from datase
- def get_table_enties_from_database(self,database_name):
+ def _get_table_enties_from_database(self,database_name):
   table_enties_dict={}
   for table_names in self.send_msg([database_name,"show tables;"]):
    enties_lists=[]
