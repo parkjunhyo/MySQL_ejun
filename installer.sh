@@ -14,16 +14,16 @@ then
 fi
 mode=$1
 
-### mysql access information file creation
-
-
 ### log folder creation
+if [[ ! -f $log_directory ]]
+then
+ mkdir -p $log_directory
+fi
 
 ### init variable creation
 mysql_pass=${mysql_pass:='mysql'}
 mysql_bind_iface=${mysql_bind_iface:='eth0'}
 mysql_bind="''"
-
 
 ### setup common (server and client)
 apt-get install -y expect python-mysqldb
