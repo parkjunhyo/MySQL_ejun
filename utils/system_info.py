@@ -1,4 +1,4 @@
-database_passwd='mysql'
-client_mode='server'
+database_passwd=''
+client_mode=''
 database_host=''
-log_directory='/root/MySQL_ejun/log'
+log_directory=''
