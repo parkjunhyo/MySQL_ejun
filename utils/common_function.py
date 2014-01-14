@@ -10,18 +10,18 @@ class Common_function(Help_manual):
 
  def get_input_values(self,values):
   if len(values) == 1:
-   Help_manual.show_manual(self,values)
+   self.show_manual(values)
    sys.exit()
   else:
-   if values[1] in Help_manual.function.keys():
+   if values[1] in self.function.keys():
     command = values[1]
     if command == "-h" or command == "--help":
-     Help_manual.function[command](self,values)
+     self.function[command](values)
      sys.exit()
     ### correct input
     return values[1], values[2:]
    else:
-    Help_manual.show_manual(self,values)
+    self.show_manual(values)
     sys.exit()
 
  def logging_msg(self,filename,msg):
